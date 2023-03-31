@@ -1,6 +1,8 @@
+using Microsoft.VisualBasic;
 using System.ComponentModel;
 
-namespace Barrel
+
+namespace BOX
 {
     public enum MaterialType
     {
@@ -13,12 +15,28 @@ namespace Barrel
         Big
     }
 
-    public class Box
-    {
+    public struct Box
+        
+    { 
         public MaterialType Material { get; set; }
         public SizeType Size { get; set; }
 
-        public void SetTheMaterial(MaterialType newMaterial)
+        public Box()
+    
+        {
+            Size = SizeType.Big;
+            Material = MaterialType.Iron;
+
+        }
+        public Box(SizeType DEFALTsize)
+        {
+            Size = DEFALTsize; 
+      
+        }
+
+
+        public void SetTheMaterial( MaterialType newMaterial)
+            
         {
             Material = newMaterial;
 
@@ -45,12 +63,18 @@ namespace Barrel
         }
         private bool GetRandomStuff()
         {
+            
+
             Random random = new Random();
             int a = random.Next(0, 10);
             if (a > 5)
                 return true;
             else
                 return false;
+         
+            
+            
+            
 
 
 
